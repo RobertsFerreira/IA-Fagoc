@@ -11,7 +11,9 @@ https://www.python.org/downloads/release/python-354/
 # Passos para instalação das bibliotecas
 
     1º Passo:
-        Abrir o cmd dentro da pasta raiz do projeto e rodar o comando pip install -r requirements.txt.
+        # Abrir o cmd dentro da pasta raiz do projeto 
+        
+        # rodar o comando pip install -r requirements.txt.
 
     2º Passo:
         Após a finalização do download e instalação reiniciar o vscode.
