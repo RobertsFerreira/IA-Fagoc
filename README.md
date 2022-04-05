@@ -1,4 +1,4 @@
-# IA - Fagoc -- [!Badge](https://img.shields.io/github/license/RobertsFerreira/IA-Fagoc)
+# IA - Fagoc -- ![Badge](https://img.shields.io/github/license/RobertsFerreira/IA-Fagoc)
 ## Inteligencia Artifical para identificar se uma corrente está lubrificada ou não
 
 ### 🎲 Pré-requisito 
