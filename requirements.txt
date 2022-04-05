@@ -1,0 +1,4 @@
+matplotlib
+numpy
+pillow
+https://github.com/pybrain/pybrain/archive/refs/tags/0.3.3.zip
