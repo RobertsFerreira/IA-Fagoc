@@ -18,5 +18,9 @@ Para rodar o projeto é necessário ter o **[Python 3.5](https://www.python.org/
 
 - Após a finalização do download e instalação reiniciar o vscode.
 
-# Passos para rodar o projeto sem erro na Lib PyBrain
+# Passos para corrigir o erro de `ImportError: cannot import name 'expm2'`
 
+- Vá no seguinte caminho C:\Users\{user_do_pc}\AppData\Local\Programs\Python\Python35-32\lib\site-packages\pybrain\tools
+- Abra o arquivo functions.py
+- Altere a linha 
+    `from scipy.linalg import inv, det, svd, logm, expm2` para `from scipy.linalg import inv, det, svd, logm, expm`
