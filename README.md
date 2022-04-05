@@ -5,7 +5,7 @@
 
 Para rodar o projeto é necessário ter o Python em sua versão 3.5
 
-*-- Link para downlaod*
+#-- Link para downlaod#
 https://www.python.org/downloads/release/python-354/
 
 -- Irá baixar a opção `Windows x86 executable installer`
