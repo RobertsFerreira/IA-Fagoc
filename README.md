@@ -5,12 +5,12 @@
 
 ### 🎲 Pré-requisito 
 
-Para rodar o projeto é necessário ter o **[Python 3.5](https://www.python.org/downloads/release/python-354/)**
+Para rodar o projeto é necessário ter o **[Python 3.7](https://www.python.org/downloads/release/python-379/)**
 
 - Irá baixar a opção **`Windows x86 executable installer`**
 
 - ⚠️ Observação:
-    - **Caso não esteja com a versão 3.5 a instalação de alguma biblioteca pode dar erro**
+    - **Caso não esteja com a versão 3.7 a instalação de alguma biblioteca pode dar erro**
 
 ---
 
