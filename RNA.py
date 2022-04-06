@@ -17,9 +17,12 @@ from PIL import Image
 # obter os nomes dos arquivos dentro de uma pasta
 def getFiles( path ):
     files = []
-    for files in os.walk( path ):
+    _files = []
+    for past, subpath, file in os.walk( path ):
+        _files = file
+    for file in _files:
         if file.endswith(".jpg"):
-            files.append( file )
+            files.append( f'{path}\\{file}' )
     return files
 
 # redimensionar imagem para 40x40
@@ -82,15 +85,15 @@ network = buildNetwork( tamanho, neuronios,  neuronios, 1 )    # define network
 dataSet = SupervisedDataSet( tamanho, 1 )  # define dataSet
 
 '''
+Exemplo da lista de arquivos de treinamento:
 arquivos = ['1.txt', '1a.txt', '1b.txt', '1c.txt',
             '1d.txt', '1e.txt', '1f.txt']
 '''  
 arquivos = getFiles( 'training' )
 
-# a resposta do número
+# Exemplo de resposta 
 # resposta = [ [1], [1],[0], [0] ] 
 resposta = [] 
-#resposta = [[1], [1], [1], [1], [1], [1], [1]] 
 
 for arquivo in arquivos:
     if(arquivo.startswith('n')):
