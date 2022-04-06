@@ -1,10 +1,11 @@
 # importação das bibliotecas necessárias
 
+import os
+
 # pybrain
 from pybrain.datasets.supervised import SupervisedDataSet 
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.supervised.trainers import BackpropTrainer
-
 
 # gráficos 
 import matplotlib.pyplot as plt
@@ -13,9 +14,23 @@ import numpy as np
 # tratamento de imagem
 from PIL import Image
 
+# obter os nomes dos arquivos dentro de uma pasta
+def getFiles( path ):
+    files = []
+    for files in os.walk( path ):
+        if file.endswith(".jpg"):
+            files.append( file )
+    return files
+
+# redimensionar imagem para 40x40
+def resize( path ):
+    img = Image.open( path )
+    img = img.resize( (40,40) )
+    return img
+
 # função para converter imagem em matriz
 def getImage( path ):
-    img = Image.open( path )
+    img = resize( path )
     pixels = img.load()
     largura = img.size[0]
     altura = img.size[1]
@@ -27,13 +42,13 @@ def getImage( path ):
             data.append( pixel[0] )
             data.append( pixel[1] )
             data.append( pixel[2] )
-    exif_data = img._getexif()
-    exif_data
+    # exif_data = img._getexif()
+    # exif_data
     return data
 
 # função para obter o size da imagem rgb
 def getSize( path ):
-    img = Image.open( path )
+    img = resize( path)
     largura = img.size[0]
     altura = img.size[1]
     return largura * altura * 3
@@ -59,21 +74,30 @@ def getData( path ):
 tamanho = getSize( 'training\\lub_1.jpg' )
 
 # num de neuronio de acordo com o tamanho da rede
-neuronios = int(tamanho/800)
+neuronios = int(tamanho/12)
 print('neuronios: {}'.format(neuronios))
 
 # configurando a rede neural artificial e o dataSet de treinamento
-network = buildNetwork( tamanho, neuronios, neuronios , 1 )    # define network 
+network = buildNetwork( tamanho, neuronios,  neuronios, 1 )    # define network 
 dataSet = SupervisedDataSet( tamanho, 1 )  # define dataSet
 
 '''
 arquivos = ['1.txt', '1a.txt', '1b.txt', '1c.txt',
             '1d.txt', '1e.txt', '1f.txt']
 '''  
-arquivos = ['training\\lub_1.jpg', 'training\\lub_2.jpg', 'training\\n_lub_1.jpg', 'training\\n_lub_2.jpg']          
+arquivos = getFiles( 'training' )
+
 # a resposta do número
-resposta = [ [1], [1],[0], [0] ] 
+# resposta = [ [1], [1],[0], [0] ] 
+resposta = [] 
 #resposta = [[1], [1], [1], [1], [1], [1], [1]] 
+
+for arquivo in arquivos:
+    if(arquivo.startswith('n')):
+        resposta.append([0])
+    else:
+        resposta.append([1])
+
 
 i = 0
 for arquivo in arquivos:           # para cada arquivo de treinamento
@@ -89,7 +113,7 @@ iteration = 0
 outputs = []
 file = open("outputs_img.txt", "w") # arquivo para guardar os resultados
 
-while error > 0.00000001: # 10 ^ -3
+while error > 0.00001: # 10 ^ -3
     error = trainer.train()
     outputs.append( error )
     iteration += 1    
