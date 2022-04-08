@@ -25,5 +25,5 @@ Para rodar o projeto é necessário ter o **[Python 3.7](https://www.python.org/
 - Clone o repository do [PyBrain](https://github.com/pybrain/pybrain) e nele há os passos para instalar dentro do python
 
 - Após clonar abrir a pasta do projeto
-- 
+
 - Abrir cmd e rodar o comando python install setup.py
