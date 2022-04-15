@@ -26,4 +26,4 @@ Para rodar o projeto é necessário ter o **[Python 3.7](https://www.python.org/
 
 - Após clonar abrir a pasta do projeto
 
-- Abrir cmd e rodar o comando python install setup.py
+- Abrir cmd e rodar o comando python setup.py install
