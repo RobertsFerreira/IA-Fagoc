@@ -28,7 +28,7 @@ def getFiles( path ):
 # redimensionar imagem para 40x40
 def resize( path ):
     img = Image.open( path )
-    img = img.resize( (40,40) )
+    img = img.resize( (60,60) )
     return img
 
 # função para converter imagem em matriz
@@ -77,7 +77,7 @@ def getData( path ):
 tamanho = getSize( 'training\\lub_1.jpg' )
 
 # num de neuronio de acordo com o tamanho da rede
-neuronios = int(tamanho/12)
+neuronios = int(tamanho/8)
 print('neuronios: {}'.format(neuronios))
 
 # configurando a rede neural artificial e o dataSet de treinamento
@@ -96,7 +96,11 @@ arquivos = getFiles( 'training' )
 resposta = [] 
 
 for arquivo in arquivos:
-    if(arquivo.startswith('n')):
+
+    #verificar nome do arquivo removendo o prefixo
+    nome = arquivo.split('\\')[1]
+    
+    if(nome.startswith('n')):
         resposta.append([0])
     else:
         resposta.append([1])
